@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0; padding: 0;
+      font-family: sans-serif;
+    }
+    .step {
+      background: #3b5998;
+      margin: 10px auto;
+      box-sizing: border-box;
+      padding: 0px 20px;
+      border-radius: 2px;
+      color: white;
+      font-size: 1.4em;
+      max-width: 520px;
+    }
+    .step-content {
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    input:focus, button:focus {
+      outline:0;
+    }
+    input:invalid {
+      box-shadow: none;
+    }
+    .step h3 {
+      box-sizing: border-box;
+      padding: 15px 0px; margin: 0px;
+    }
+    .step h3 small {
+      font-size: 0.8em;
+      font-weight: lighter;
+    }
+    .wrapper {
+      margin: 8px;
+      background: #fff;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .footer {
+      color: #999;
+      font-size: 0.8em;
+    }
+    .footer a {
+      color: #333;
+      text-decoration: none;
+      border-bottom: 1px solid #333;
+    }
+    .content-piece {
+      position: relative;
+      margin: 10px 0px;
+    }
+    img {
+      width: 100%;
+    }
+    .step a {
+      color: #3B5998;
+    }
+    .button {
+      margin: 0 auto;
+      border: none;
+      font-size: 1em;
+      background: #3b5998;
+      color: white;
+      padding: 6px 14px;
+      margin: 0 auto;
+      border-radius: 3px;
+      border-bottom: 3px solid #293e6a;
+      transition: 0.1s;
+      position: relative;
+      cursor: pointer;
+      top: 0;
+      text-decoration: none;
+    }
+    .button:active {
+      border: none;
+      font-size: 1em;
+      background: #3b5998;
+      color: white;
+      padding: 6px 14px;
+      margin: 0 auto;
+      border-radius: 3px;
+      border-bottom: 0px solid #293e6a;
+      top: 3px;
+    }
+    .button-wrp {
+      position: relative;
+      text-align: center;
+      width: 100%;
+      height: 50px;
+      margin-left: 0px;
+      display: block;
+    }
+    .mktoButtonRow {
+      width: 100% !important;
+    }
+    .mktoButtonWrap {
+      position: relative !important;
+      text-align: center !important;
+      width: 100% !important;
+      height: 50px !important;
+      margin-left: 0px !important;
+      display: block;
+    }
+    .mktoForm, .mktoFormCol, .mktoFieldWrap {
+      width: 100% !important;
+    }
+    input {
+      border: 1px solid #ccc !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      display: inline-block !important;
+      padding: 10px !important;
+      font-size: 1.1em !important;
+    }
+    input.empty {
+      border: 1px solid #ccc !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      display: inline-block !important;
+      padding: 10px !important;
+      font-size: 1.1em !important;
+    }
+    input:not(.empty) ~ label {
+      color: #999 !important;
+      position: absolute !important;
+      bottom: 18px !important;
+      font-size: 0.75em !important;
+      cursor: text !important;
+      left: 0px !important;
+      padding: 10px !important;
+      z-index: 55 !important;
+      transition: 0.3s !important;
+    }
+    input.empty:focus ~ label {
+      bottom: 18px !important;
+      font-size: 0.75em !important;
+    }
+    input.empty ~ label {
+      color: #666 !important;
+      position: absolute !important;
+      bottom: 0px !important;
+      cursor: text !important;
+      left: 0px !important;
+      padding: 10px 10px !important;
+      z-index: 55 !important;
+      transition: 0.3s !important;
+    }
+    button[type="submit"] {
+      border: none !important;
+      font-size: 1.4em !important;
+      background: #3B5998 !important;
+      color: white !important;
+      padding: 6px 14px !important;
+      margin: 0 auto !important;
+      border-radius: 3px !important;
+      border-bottom: 3px solid #293E6A !important;
+      transition: 0.1s !important;
+      position: relative !important;
+      cursor: pointer !important;
+      top: 0 !important;
+    }
+    button[type="submit"]:active {
+      border: none !important;
+      font-size: 1.4em !important;
+      background: #3B5998 !important;
+      color: white !important;
+      padding: 6px 14px !important;
+      margin: 0 auto !important;
+      border-radius: 3px !important;
+      border-bottom: 0px solid #293E6A !important;
+      top: 3px !important;
+    }
+    .mktoLabel.mktoHasWidth {
+      width: 60% !important;
+      box-sizing: border-box;
+    }
+    .mktoLogicalField.mktoCheckboxList.mktoHasWidth {
+      width: 30px !important;
+      box-sizing: border-box;
+      text-align: left;
+    }
+    .mktoForm .mktoError {
+      right: auto !important;
+    }
+    .mktoForm .mktoError .mktoErrorMsg {
+      background-image: none !important;
+      background-color: #333 !important;
+      border: 0px !important;
+      box-shadow: none !important;
+      border-radius: 2px !important;
+      text-shadow: none !important;
+    }
+    .mktoForm .mktoError .mktoErrorArrow {
+      background-color: #333 !important;
+      border: 1px solid #333 !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <img src="http://info.rockybrands.com/rs/018-APH-439/images/170301-socialcontest.jpg" alt="">
+    <div class="step">
+      <h3>Step 1: <small>Please click the Like button below...</small></h3>
+    </div>
+    <div class="step-content">
+      <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fslipgrips&width=62&layout=box_count&action=like&size=large&show_faces=false&share=false&height=65&appId=1389869664414067" width="62" height="65" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+    </div>
+    <div class="step">
+      <h3>Step 2: <small>Please provide some basic information...</small></h3>
+    </div>
+    <script src="https://app-ab06.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <div class="step-content">
+      <form id="mktoForm_2414" class="mktoMain"></form>
+    </div>
+    <script>MktoForms2.loadForm("https://app-ab06.marketo.com", "018-APH-439", 2414);</script>
+    <!-- <div class="step-content">
+      <form action="#!" id="lo-fbform">
+        <div class="content-piece">
+          <input type="text" id="lo-namef" class="empty">
+          <label for="lo-namef">First Name</label>
+        </div>
+        <div class="content-piece">
+          <input type="text" id="lo-namel" class="empty">
+          <label for="lo-namel">Last Name</label>
+        </div>
+        <div class="content-piece">
+          <input type="email" id="lo-email" class="empty" required="required">
+          <label for="lo-email">Email</label>
+        </div>
+        <div class="button-wrp content-piece">
+          <input type="submit" value="Submit Entry">
+        </div>
+      </form>
+    </div> -->
+    <div class="step" style="margin-top: 50px;">
+      <h3 style="text-align: center;"><small>In the mean time...</small></h3>
+    </div>
+    <div class="button-wrp">
+      <a href="https://www.slipgrips.com/?utm_source=email&amp;utm_medium=nav&amp;utm_content=viewfootwear&amp;utm_campaign=facebookcontest" class="button">View Footwear</a>
+    </div>
+    <footer class="footer">
+      This promotion is in no way sponsored, endorsed or administered by, or associated with, Facebook. By participating in this promotion you agree to a complete release of Facebook from any claims. You are providing your information to SlipGrips and not to Facebook.
+    </footer>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script>
+    // Remove Marketo gutters...
+    var form = $('.mktoMain');
+    MktoForms2.whenReady(function (form) {
+      // Put your code that uses the form object here
+      $('.mktoGutter').remove();
+      $('.mktoForm label').each(function(){
+        $(this).insertAfter($(this).next('input').addClass('empty'));
+      });
+
+      $('input.empty').blur(function() {
+        if ($(this).val().length > 0) {
+          $(this).removeClass('empty');
+        } else {
+          $(this).addClass('empty');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
